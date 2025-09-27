@@ -12,12 +12,17 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo"><a href="index.html">Mathias Wouters</a></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -39,7 +44,7 @@
                     <i class="fas fa-envelope"></i> Contact Me
                 </a>
             </div>
-            <div class="social-links">
+            <div class="social-links hero-social">
                 <a href="https://linkedin.com/in/mathiaswouters" class="contact-link">
                     <i class="fab fa-linkedin"></i>
                     LinkedIn
@@ -220,7 +225,133 @@
         <div class="container">
             <h2 class="section-title">Tech Stack & Development Tools</h2>
             <div class="tools-content">
-                <p>...</p>
+                <p class="tools-intro">
+                    My technology stack spans infrastructure management, software development, and DevOps practices. 
+                    I focus on modern, scalable technologies that enable rapid development and reliable operations.
+                </p>
+
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3>Infrastructure & DevOps</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-linux"></i>
+                                <span>Linux (Fedora, Ubuntu)</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-dharmachakra"></i>
+                                <span>Kubernetes & K3s</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-docker"></i>
+                                <span>Docker & Containers</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-cogs"></i>
+                                <span>Ansible Automation</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-hdd"></i>
+                                <span>Proxmox & TrueNAS</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-key"></i>
+                                <span>HashiCorp Vault</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-chart-area"></i>
+                                <span>Prometheus & Grafana</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-code-branch"></i>
+                                <span>GitLab CI/CD & ArgoCD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Development & Languages</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-terminal"></i>
+                                <span>Go (Golang)</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-js-square"></i>
+                                <span>TypeScript & JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-terminal"></i>
+                                <span>Bash Scripting</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-react"></i>
+                                <span>Next.js & React</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>Tailwind CSS</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-database"></i>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-database"></i>
+                                <span>ClickHouse</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-database"></i>
+                                <span>TimescaleDB</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-redis"></i>
+                                <span>Redis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Development Tools</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git & GitHub</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-terminal"></i>
+                                <span>Alacritty & Hyprland</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-code"></i>
+                                <span>VS Code & Neovim</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-cubes"></i>
+                                <span>Harbor Registry</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -230,7 +361,7 @@
         <div class="container">
             <h2 class="section-title">Latest Blog Posts</h2>
             
-            <div class="blog-grid">
+            <div class="blog-grid limited">
                 <article class="blog-card">
                     <div class="blog-image">
                         <i class="fas fa-cogs"></i>
@@ -281,57 +412,12 @@
                         </a>
                     </div>
                 </article>
-
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">February 20, 2024</div>
-                        <h3 class="blog-title">Automating Everything: My Linux Workflow Setup</h3>
-                        <p class="blog-excerpt">
-                            Complete guide to my automated Linux desktop environment with Hyprland, 
-                            dotfiles management, and productivity-focused customizations.
-                        </p>
-                        <a href="#" class="blog-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">February 12, 2024</div>
-                        <h3 class="blog-title">Planning My Move Abroad: Tech Opportunities in North America</h3>
-                        <p class="blog-excerpt">
-                            Research and planning for relocating to Canada or the USA as a tech professional, 
-                            including visa considerations and market opportunities.
-                        </p>
-                        <a href="#" class="blog-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">February 5, 2024</div>
-                        <h3 class="blog-title">Leadership Lessons from Scouting Applied to Tech Teams</h3>
-                        <p class="blog-excerpt">
-                            How my experience leading scout groups has shaped my approach to 
-                            technical leadership and team collaboration in professional environments.
-                        </p>
-                        <a href="#" class="blog-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
+            </div>
+            
+            <div class="blog-cta">
+                <a href="blog.html" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i> View All Blog Posts
+                </a>
             </div>
         </div>
     </section>

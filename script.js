@@ -1,3 +1,29 @@
+// Theme Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to 'dark'
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+});
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -16,10 +42,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background on scroll
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
+    const currentTheme = document.body.getAttribute('data-theme');
+    
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+        if (currentTheme === 'light') {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+        }
     } else {
-        navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+        if (currentTheme === 'light') {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        } else {
+            navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+        }
     }
 });
 
@@ -40,7 +76,7 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Observe all cards and sections for animation
 document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.project-card, .experience-card, .blog-card, .about-content, .section-title');
+    const animatedElements = document.querySelectorAll('.project-card, .experience-card, .blog-card, .tech-category, .section-title');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -72,7 +108,7 @@ window.addEventListener('load', function() {
     typeWriter(heroTitle, originalText, 50);
 });
 
-// Add floating animation to profile image
+// Add floating animation to profile image (if exists)
 document.addEventListener('DOMContentLoaded', function() {
     const profileImage = document.querySelector('.profile-image');
     if (profileImage) {
@@ -87,18 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
 // Add hover effects to skill tags
 document.addEventListener('DOMContentLoaded', function() {
-    const skillTags = document.querySelectorAll('.skill-tag');
+    const skillTags = document.querySelectorAll('.skill-tag, .tech-tag');
     skillTags.forEach(tag => {
         tag.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-3px) scale(1.05)';
@@ -132,26 +159,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add dynamic color changes based on scroll position
-window.addEventListener('scroll', function() {
-    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    const hue = scrollPercent * 60; // Change color as user scrolls
-    document.documentElement.style.setProperty('--primary-hue', hue);
-});
-
 // Add interactive terminal-like effect to tech stack
 document.addEventListener('DOMContentLoaded', function() {
-    const techTags = document.querySelectorAll('.tech-tag');
-    techTags.forEach((tag, index) => {
+    const techItems = document.querySelectorAll('.tech-item');
+    techItems.forEach((item, index) => {
         setTimeout(() => {
-            tag.style.opacity = '1';
-            tag.style.transform = 'translateX(0)';
-        }, index * 100);
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+        }, index * 50);
         
-        tag.style.opacity = '0';
-        tag.style.transform = 'translateX(-20px)';
-        tag.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     });
+});
+
+// Enhanced theme transition
+document.addEventListener('DOMContentLoaded', function() {
+    // Listen for theme changes and update navbar accordingly
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                updateNavbarForTheme();
+            }
+        });
+    });
+    
+    observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+    });
+    
+    function updateNavbarForTheme() {
+        const navbar = document.querySelector('.navbar');
+        const currentTheme = document.body.getAttribute('data-theme');
+        
+        // Force navbar style update based on current scroll position
+        const scrollY = window.scrollY;
+        if (scrollY > 100) {
+            if (currentTheme === 'light') {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+            }
+        } else {
+            if (currentTheme === 'light') {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        }
+    }
 });
 
 // Add Easter egg - Konami code
@@ -190,3 +248,144 @@ document.addEventListener('keydown', function(e) {
         konamiCode = [];
     }
 });
+
+// Smooth section transitions
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section');
+    
+    const sectionObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+});
+
+// Add loading animation for tech items when they come into view
+document.addEventListener('DOMContentLoaded', function() {
+    const techCategories = document.querySelectorAll('.tech-category');
+    
+    const techObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const techItems = entry.target.querySelectorAll('.tech-item');
+                techItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    techCategories.forEach(category => {
+        const techItems = category.querySelectorAll('.tech-item');
+        techItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        techObserver.observe(category);
+    });
+});
+
+// Enhanced project card interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const techTags = this.querySelectorAll('.tech-tag');
+            techTags.forEach((tag, index) => {
+                setTimeout(() => {
+                    tag.style.transform = 'translateY(-2px) scale(1.05)';
+                }, index * 50);
+            });
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const techTags = this.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    });
+});
+
+// Blog card hover effects
+document.addEventListener('DOMContentLoaded', function() {
+    const blogCards = document.querySelectorAll('.blog-card');
+    
+    blogCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const blogImage = this.querySelector('.blog-image');
+            if (blogImage) {
+                blogImage.style.transform = 'scale(1.05)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const blogImage = this.querySelector('.blog-image');
+            if (blogImage) {
+                blogImage.style.transform = 'scale(1)';
+            }
+        });
+    });
+});
+
+// Add smooth scroll to top functionality
+function addScrollToTop() {
+    const scrollBtn = document.createElement('button');
+    scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollBtn.className = 'scroll-to-top';
+    scrollBtn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        color: white;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    `;
+    
+    document.body.appendChild(scrollBtn);
+    
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.visibility = 'visible';
+        } else {
+            scrollBtn.style.opacity = '0';
+            scrollBtn.style.visibility = 'hidden';
+        }
+    });
+}
+
+// Initialize scroll to top button
+document.addEventListener('DOMContentLoaded', addScrollToTop);

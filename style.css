@@ -181,6 +181,32 @@ body {
     color: #667eea;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    color: #e2e8f0;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
 /* Section Styles */
 .section {
     padding: 5rem 0;
@@ -743,6 +769,11 @@ gap: 0.5rem;
 
     .projects-grid {
 grid-template-columns: 1fr;
+    }
+
+    .social-links {
+flex-direction: column;
+align-items: center;
     }
 
     .contact-links {

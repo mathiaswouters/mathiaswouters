@@ -1,17 +1,5 @@
 ## Hi there 👋
 
-## Inspiration:
-
-- [Cole Caccamise](https://colecaccamise.com/)
-- [Marc Lou](https://marclou.com/s)
-- [Dan Rowden](https://danrowden.com/)
-- [Andrew Gazdecki](https://www.andrewgazdecki.com/)
-
-
-
-
----
-
 **mathiaswouters/mathiaswouters** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:

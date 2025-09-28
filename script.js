@@ -389,3 +389,95 @@ function addScrollToTop() {
 
 // Initialize scroll to top button
 document.addEventListener('DOMContentLoaded', addScrollToTop);
+
+// Contact form handling with Formspree integration
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        
+        // Hide previous messages
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+
+        try {
+            // Create FormData object
+            const formData = new FormData(contactForm);
+            
+            // Send to Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Success
+                successMessage.style.display = 'block';
+                contactForm.reset();
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+                
+                // Reset field borders
+                const allFields = contactForm.querySelectorAll('.form-input, .form-textarea, .form-select');
+                allFields.forEach(field => {
+                    field.style.borderColor = 'var(--border-color)';
+                });
+                
+            } else {
+                // Error from server
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Show error message
+            errorMessage.style.display = 'block';
+            errorMessage.scrollIntoView({ behavior: 'smooth' });
+            console.error('Form submission error:', error);
+        }
+        
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+    });
+
+    // Real-time form validation
+    const requiredFields = contactForm.querySelectorAll('[required]');
+    
+    requiredFields.forEach(field => {
+        field.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                this.style.borderColor = '#ef4444';
+            } else {
+                this.style.borderColor = 'var(--border-color)';
+            }
+        });
+
+        field.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                this.style.borderColor = 'var(--accent-primary)';
+            }
+        });
+    });
+
+    // Email validation
+    const emailField = document.getElementById('email');
+    emailField.addEventListener('blur', function() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (this.value && !emailRegex.test(this.value)) {
+            this.style.borderColor = '#ef4444';
+        } else if (this.value) {
+            this.style.borderColor = 'var(--accent-primary)';
+        }
+    });
+});

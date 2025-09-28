@@ -27,38 +27,116 @@
         </div>
     </nav>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <p>
-                    For collaborations, opportunities, or professional inquiries related to SaaS, cloud infrastructure, or DevOps, please feel free to reach out.
-                </p>
+            <h2 class="section-title contact-title">Get In Touch</h2>
+            
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Let's Start a Conversation</h3>
+                    <p>
+                        I'm always interested in discussing new opportunities, collaborations, or just connecting with fellow professionals in the tech industry. Whether you have a project in mind, want to explore potential partnerships, or simply want to chat about SaaS, infrastructure, or DevOps, I'd love to hear from you.
+                    </p>
 
-                <div class="contact-button">
-                    <a href="contact.html" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Contact Me
-                    </a>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="contact-detail-label">Email</span>
+                                <a href="mailto:matiwouters@gmail.com" class="contact-detail-value">matiwouters@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="contact-detail-label">LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/mathias-w-9033421b1/" target="_blank" class="contact-detail-value">Connect with me</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="contact-detail-label">GitHub</span>
+                                <a href="https://github.com/mathiaswouters" target="_blank" class="contact-detail-value">mathiaswouters</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="contact-detail-label">Response Time</span>
+                                <span class="contact-detail-value">Usually within 24 hours</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="contact-links">
-                    <a href="mailto:matiwouters@gmail.com" class="contact-link">
-                        <i class="fas fa-paper-plane"></i>
-                        Email Me
-                    </a>
-                    <a href="https://www.linkedin.com/in/mathias-w-9033421b1/" target="_blank" class="contact-link">
-                        <i class="fab fa-linkedin"></i>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/mathiaswouters" target="_blank" class="contact-link">
-                        <i class="fab fa-github"></i>
-                        GitHub
-                    </a>
-                    <a href="https://x.com/MathiasWouters2" target="_blank" class="contact-link">
-                        <i class="fab fa-twitter"></i>
-                        Twitter
-                    </a>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        Thank you for your message! I'll get back to you as soon as possible.
+                    </div>
+                    
+                    <div class="error-message" id="errorMessage">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        There was an error sending your message. Please try again or contact me directly via email.
+                    </div>
+
+                    <form id="contactForm" action="https://formspree.io/f/xnngjkno" method="POST">
+                        <input type="text" name="_gotcha" style="display:none" />
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company (Optional)</label>
+                            <input type="text" id="company" name="company" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, idea, or how I can help you..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+
+                    <p class="form-note">
+                        * Required fields. Your information will be kept confidential and used only to respond to your inquiry.
+                    </p>
                 </div>
             </div>
         </div>

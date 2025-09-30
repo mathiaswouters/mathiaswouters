@@ -1,14 +1,46 @@
-## Hi there 👋
+# 👋 Hey, I'm Mathias Wouters  
 
-**mathiaswouters/mathiaswouters** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+💻 **Linux System & Cloud Engineer** | 🚀 **Homelab Builder** | 🛠️ **SaaS Developer**  
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+### 🌍 About Me
+- 🇧🇪 Based in Belgium  
+- 🖥️ Passionate about **Linux, DevOps, Cloud, and Automation**  
+- 🏗️ Currently building a **...**  
+- 💡 Exploring **SaaS ideas** with **Go**  
+- 📚 Always learning more about **tech, business, and entrepreneurship**  
+
+---
+
+### ⚡ Tech I Work With
+**Languages & Frameworks**  
+- Go • Python • Bash  
+
+**Cloud & Infra**  
+- Linux (Fedora, Arch, Debian) • Proxmox • Kubernetes (K3s) • Docker • Ansible • GitOps  
+
+**DevOps & CI/CD**  
+- GitLab • ArgoCD • Prometheus • Grafana • Vault • Harbor  
+
+**Other Interests**  
+- Cybersecurity • Automation • Self-hosting  
+
+---
+
+### 🔭 Current Projects
+- 🔹 ...  
+- 🔹 ...  
+- 🔹 ...  
+
+---
+
+### 📫 Connect with Me
+- Website: [mathiaswouters.com](https://www.mathiaswouters.com/)
+- LinkedIn: [Mathias Wouters](https://www.linkedin.com/in/mathias-w-9033421b1/)  
+- Twitter / X: [Mathias Wouters](https://x.com/MathiasWouters2)
+
+---
+
+⭐ *"Automate everything, learn constantly, and build what excites you."*  
+

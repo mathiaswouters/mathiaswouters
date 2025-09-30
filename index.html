@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathias Wouters</title>
     <link rel="icon" type="image/svg" href="images/MW-Logo-64x64-favicon.svg">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +15,7 @@
         <div class="nav-container">
             <div class="logo"><a href="index.html">Mathias Wouters</a></div>
             <div class="nav-right">
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="blog.html">Blog</a></li>
@@ -22,6 +23,9 @@
                 </ul>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
@@ -44,7 +48,7 @@
                     <i class="fas fa-envelope"></i> Contact Me
                 </a>
             </div>
-            <div class="social-links hero-social">
+            <div class="social-links hero-social hide-on-mobile">
                 <a href="mailto:matiwouters@gmail.com" class="contact-link">
                     <i class="fas fa-paper-plane"></i>
                     Email me
@@ -194,7 +198,7 @@
                 </div>
             </div>
 
-            <div class="saas-strategy">
+            <div class="saas-strategy hide-on-mobile">
                 <div class="strategy-card">
                     <div class="strategy-icon">
                         <i class="fas fa-compass"></i>

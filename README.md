@@ -6,7 +6,7 @@
 
 ### 🌍 About Me
 - 🇧🇪 Based in Belgium  
-- 🖥️ Passionate about **Linux, DevOps, Cloud, and Automation**  
+- 🖥️ Passionate about **Cloud, DevOps, Linux, and Automation**  
 - 🏗️ Currently building a **...**  
 - 💡 Exploring **SaaS ideas** with **Go**  
 - 📚 Always learning more about **tech, business, and entrepreneurship**  
@@ -18,7 +18,7 @@
 - Go • Python • Bash  
 
 **Cloud & Infra**  
-- Linux (Fedora, Arch, Debian) • Proxmox • Kubernetes (K3s) • Docker • Ansible • GitOps  
+- Linux (Red Hat, Fedora, Arch, Debian) • Proxmox • Kubernetes (K3s) • Docker • Ansible • GitOps  
 
 **DevOps & CI/CD**  
 - GitLab • ArgoCD • Prometheus • Grafana • Vault • Harbor  

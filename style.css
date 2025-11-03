@@ -10,6 +10,7 @@
     --text-accent: #cbd5e0;
     --accent-primary: #667eea;
     --accent-secondary: #764ba2;
+    --accent-tertiary: #9f7aea;
     --border-color: rgba(255, 255, 255, 0.1);
     --border-hover: rgba(102, 126, 234, 0.5);
 }
@@ -26,6 +27,7 @@
     --text-accent: #718096;
     --accent-primary: #667eea;
     --accent-secondary: #764ba2;
+    --accent-tertiary: #6b46c1;
     --border-color: rgba(0, 0, 0, 0.1);
     --border-hover: rgba(102, 126, 234, 0.3);
 }
@@ -868,7 +870,7 @@ body {
 
 .experience-company {
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .experience-company a {
@@ -909,6 +911,10 @@ body {
     background: rgba(102, 126, 234, 0.2);
     border-color: var(--accent-primary);
     transform: scale(1.05);
+}
+
+.experience-headliner {
+    margin-bottom: 1.5rem;
 }
 
 .experience-description {
@@ -958,6 +964,11 @@ body {
     height: 8px;
     top: 0.55rem;
     box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+}
+
+.experience-description span {
+    font-weight: 700;
+    color: var(--accent-tertiary);
 }
 
 /* Personal Projects Section */
@@ -1111,62 +1122,6 @@ body {
     margin-bottom: 2rem;
 }
 
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem;
-    background: var(--bg-card);
-    border-radius: 15px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.contact-detail:hover {
-    background: rgba(102, 126, 234, 0.1);
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
-}
-
-.contact-detail-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1rem;
-}
-
-.contact-detail-content {
-    flex: 1;
-}
-
-.contact-detail-label {
-    display: block;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.contact-detail-value {
-    color: var(--text-primary);
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.contact-detail-value:hover {
-    color: var(--accent-primary);
-}
-
 /* Enhanced Contact Page Styles */
 
 /* Contact Form Section - Enhanced */
@@ -1284,6 +1239,9 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .contact-detail::before {
@@ -1360,6 +1318,7 @@ body {
     font-size: 1rem;
     transition: all 0.3s ease;
     position: relative;
+    display: inline-block;
 }
 
 .contact-detail-value:hover {

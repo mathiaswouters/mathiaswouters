@@ -1,19 +1,31 @@
 "use client"
 
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowUpRight, Moon, Sun, Menu, X } from "lucide-react"
+import { Moon, Sun, Menu, X } from "lucide-react"
 import { useState } from "react"
+import { logos, siteConfig } from "@/lib/site"
 
-type Tab = "about" | "ventures"
+const navItems = [
+  { href: "/", label: "About" },
+  { href: "/products", label: "Products" },
+  { href: siteConfig.links.blog, label: "Blog", external: true },
+] as const
 
 interface HeaderProps {
-  activeTab: Tab
-  setActiveTab: (tab: Tab) => void
   theme: "light" | "dark"
   toggleTheme: () => void
 }
 
-export function Header({ activeTab, setActiveTab, theme, toggleTheme }: HeaderProps) {
+function isActive(pathname: string, href: string, external?: boolean) {
+  if (external) return false
+  if (href === "/") return pathname === "/"
+  return pathname.startsWith(href)
+}
+
+export function Header({ theme, toggleTheme }: HeaderProps) {
+  const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -25,57 +37,62 @@ export function Header({ activeTab, setActiveTab, theme, toggleTheme }: HeaderPr
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="flex items-center justify-between rounded-xl border border-border bg-background/75 backdrop-blur-md px-4 py-2.5 shadow-sm"
         >
-          {/* Logo */}
-          <button
-            onClick={() => setActiveTab("about")}
-            className="font-mono text-sm font-medium tracking-tight text-foreground hover:text-muted-foreground transition-colors"
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
+            aria-label={siteConfig.name}
           >
-            MW
-          </button>
+            <img
+              src={theme === "dark" ? logos.onDarkBg : logos.onLightBg}
+              alt=""
+              width={28}
+              height={28}
+              className="size-7 shrink-0"
+            />
+            <span className="text-sm font-medium tracking-tight text-foreground">
+              {siteConfig.name}
+            </span>
+          </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
-            {(["about", "ventures"] as Tab[]).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className="relative px-3 py-1.5 text-sm font-medium rounded-lg transition-colors"
-                style={{
-                  color: activeTab === tab ? "var(--foreground)" : "var(--muted-foreground)",
-                }}
-              >
-                {activeTab === tab && (
-                  <motion.span
-                    layoutId="tab-pill"
-                    className="absolute inset-0 rounded-lg bg-muted"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  />
-                )}
-                <span className="relative capitalize">
-                  {tab === "about" ? "About & Experience" : "Ventures"}
-                </span>
-              </button>
-            ))}
+            {navItems.map(({ href, label, external }) => {
+              const active = isActive(pathname, href, external)
+              const className =
+                "relative px-3 py-1.5 text-sm font-medium rounded-lg transition-colors"
+              const style = {
+                color: active ? "var(--foreground)" : "var(--muted-foreground)",
+              }
 
-            <a
-              href="https://blog.mathiaswouters.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted"
-            >
-              Blog
-              <ArrowUpRight className="size-3.5" />
-            </a>
+              if (external) {
+                return (
+                  <a key={href} href={href} className={className} style={style}>
+                    {label}
+                  </a>
+                )
+              }
+
+              return (
+                <Link key={href} href={href} className={className} style={style}>
+                  {active && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-lg bg-muted"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative">{label}</span>
+                </Link>
+              )
+            })}
           </nav>
 
-          {/* Right actions */}
           <div className="flex items-center gap-2">
-            <a
-              href="mailto:hello@mathiaswouters.com"
+            <Link
+              href="/contact"
               className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-foreground text-background text-sm font-medium hover:opacity-80 active:scale-95 transition-all"
             >
               Get in touch
-            </a>
+            </Link>
 
             <button
               onClick={toggleTheme}
@@ -107,7 +124,6 @@ export function Header({ activeTab, setActiveTab, theme, toggleTheme }: HeaderPr
               </AnimatePresence>
             </button>
 
-            {/* Mobile menu toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
@@ -118,7 +134,6 @@ export function Header({ activeTab, setActiveTab, theme, toggleTheme }: HeaderPr
           </div>
         </motion.div>
 
-        {/* Mobile dropdown */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
@@ -128,32 +143,47 @@ export function Header({ activeTab, setActiveTab, theme, toggleTheme }: HeaderPr
               transition={{ duration: 0.15 }}
               className="mt-2 rounded-xl border border-border bg-background/90 backdrop-blur-md p-2 flex flex-col gap-1 shadow-sm"
             >
-              {(["about", "ventures"] as Tab[]).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => { setActiveTab(tab); setMenuOpen(false) }}
-                  className="text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted"
-                  style={{ color: activeTab === tab ? "var(--foreground)" : "var(--muted-foreground)" }}
-                >
-                  {tab === "about" ? "About & Experience" : "Ventures"}
-                </button>
-              ))}
-              <a
-                href="https://blog.mathiaswouters.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Blog <ArrowUpRight className="size-3.5" />
-              </a>
-              <a
-                href="mailto:hello@mathiaswouters.com"
+              {navItems.map(({ href, label, external }) => {
+                const active = isActive(pathname, href, external)
+                const className =
+                  "text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted"
+                const style = {
+                  color: active ? "var(--foreground)" : "var(--muted-foreground)",
+                }
+
+                if (external) {
+                  return (
+                    <a
+                      key={href}
+                      href={href}
+                      onClick={() => setMenuOpen(false)}
+                      className={className}
+                      style={style}
+                    >
+                      {label}
+                    </a>
+                  )
+                }
+
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className={className}
+                    style={style}
+                  >
+                    {label}
+                  </Link>
+                )
+              })}
+              <Link
+                href="/contact"
                 className="mx-1 mt-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-foreground text-background text-sm font-medium"
                 onClick={() => setMenuOpen(false)}
               >
                 Get in touch
-              </a>
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>

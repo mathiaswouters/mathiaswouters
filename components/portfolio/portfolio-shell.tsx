@@ -1,25 +1,26 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useState } from "react"
 import { Header } from "./header"
-import { AboutView } from "./about-view"
-import { VenturesView } from "./ventures-view"
+import { logos, siteConfig } from "@/lib/site"
 
-type Tab = "about" | "ventures"
 type Theme = "light" | "dark"
 
-export function PortfolioShell() {
-  const [activeTab, setActiveTab] = useState<Tab>("about")
+const THEME_STORAGE_KEY = "theme"
+
+export function PortfolioShell({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light")
 
-  // Respect system preference on first load
   useEffect(() => {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null
+    if (stored === "light" || stored === "dark") {
+      setTheme(stored)
+      return
+    }
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
     setTheme(prefersDark ? "dark" : "light")
   }, [])
 
-  // Apply dark class to html element
   useEffect(() => {
     const root = document.documentElement
     if (theme === "dark") {
@@ -29,61 +30,51 @@ export function PortfolioShell() {
     }
   }, [theme])
 
-  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"))
+  useEffect(() => {
+    const iconHref = theme === "dark" ? logos.faviconDark : logos.faviconLight
+    let link = document.querySelector<HTMLLinkElement>("link[data-theme-icon]")
+
+    if (!link) {
+      link = document.createElement("link")
+      link.rel = "icon"
+      link.type = "image/svg+xml"
+      link.setAttribute("data-theme-icon", "true")
+      document.head.appendChild(link)
+    }
+
+    link.href = iconHref
+  }, [theme])
+
+  const toggleTheme = () =>
+    setTheme((t) => {
+      const next = t === "dark" ? "light" : "dark"
+      localStorage.setItem(THEME_STORAGE_KEY, next)
+      return next
+    })
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-      <Header
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        theme={theme}
-        toggleTheme={toggleTheme}
-      />
+      <Header theme={theme} toggleTheme={toggleTheme} />
 
-      <main className="mx-auto max-w-5xl px-4 pt-28 md:pt-32">
-        <AnimatePresence mode="wait">
-          {activeTab === "about" ? (
-            <motion.div
-              key="about"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <AboutView />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="ventures"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <VenturesView />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </main>
+      <main className="mx-auto max-w-5xl px-4 pt-28 md:pt-32">{children}</main>
 
-      {/* Footer */}
       <footer className="border-t border-border mt-8">
         <div className="mx-auto max-w-5xl px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-mono text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Mathias Wouters
+            © {new Date().getFullYear()} {siteConfig.name}
           </p>
           <div className="flex items-center gap-4">
             {[
-              { label: "GitHub", href: "https://github.com/mathiaswouters" },
-              { label: "Twitter", href: "https://twitter.com/mathiaswouters" },
-              { label: "LinkedIn", href: "https://linkedin.com/in/mathiaswouters" },
-              { label: "Blog", href: "https://blog.mathiaswouters.com" },
+              { label: "GitHub", href: siteConfig.links.github },
+              { label: "Twitter", href: siteConfig.links.twitter },
+              { label: "LinkedIn", href: siteConfig.links.linkedin },
+              { label: "Blog", href: siteConfig.links.blog },
             ].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}

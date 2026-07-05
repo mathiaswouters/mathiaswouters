@@ -13,15 +13,7 @@ import {
   caseStudies,
   type ExperienceItem,
 } from "@/content/profile"
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-  }),
-}
+import { fadeUp } from "@/lib/motion"
 
 function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
   const [count, setCount] = useState(0)

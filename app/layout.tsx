@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/next"
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { siteConfig } from "@/lib/site"
+import { themeInitScript } from "@/lib/theme"
 import "./globals.css"
 
 const _geistSans = Geist({ subsets: ["latin"] })
@@ -43,8 +44,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
-      <body className="antialiased font-sans">
+    <html lang="en" className="bg-background" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="antialiased font-sans" suppressHydrationWarning>
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

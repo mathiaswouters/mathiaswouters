@@ -1,34 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Header } from "./header"
 import { logos, siteConfig } from "@/lib/site"
-
-type Theme = "light" | "dark"
-
-const THEME_STORAGE_KEY = "theme"
+import { setStoredTheme } from "@/lib/theme"
+import { useTheme } from "@/lib/use-theme"
 
 export function PortfolioShell({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light")
-
-  useEffect(() => {
-    const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null
-    if (stored === "light" || stored === "dark") {
-      setTheme(stored)
-      return
-    }
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    setTheme(prefersDark ? "dark" : "light")
-  }, [])
-
-  useEffect(() => {
-    const root = document.documentElement
-    if (theme === "dark") {
-      root.classList.add("dark")
-    } else {
-      root.classList.remove("dark")
-    }
-  }, [theme])
+  const theme = useTheme()
 
   useEffect(() => {
     const iconHref = theme === "dark" ? logos.faviconDark : logos.faviconLight
@@ -45,12 +24,7 @@ export function PortfolioShell({ children }: { children: React.ReactNode }) {
     link.href = iconHref
   }, [theme])
 
-  const toggleTheme = () =>
-    setTheme((t) => {
-      const next = t === "dark" ? "light" : "dark"
-      localStorage.setItem(THEME_STORAGE_KEY, next)
-      return next
-    })
+  const toggleTheme = () => setStoredTheme(theme === "dark" ? "light" : "dark")
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">

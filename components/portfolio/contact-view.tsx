@@ -7,19 +7,11 @@ import { submitContactForm } from "@/app/contact/actions"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/lib/site"
 import type { ContactFormState } from "@/lib/contact"
+import { fadeUpSm as fadeUp } from "@/lib/motion"
 
 const initialState: ContactFormState = {
   success: false,
   error: null,
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-  }),
 }
 
 const inputClassName =

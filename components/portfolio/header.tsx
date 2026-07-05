@@ -7,15 +7,23 @@ import { Moon, Sun, Menu, X } from "lucide-react"
 import { useState } from "react"
 import { logos, siteConfig } from "@/lib/site"
 
-const navItems = [
+type NavItem =
+  | { href: string; label: string }
+  | { href: string; label: string; external: true }
+
+const navItems: NavItem[] = [
   { href: "/", label: "About" },
   { href: "/products", label: "Products" },
   { href: siteConfig.links.blog, label: "Blog", external: true },
-] as const
+]
 
 interface HeaderProps {
   theme: "light" | "dark"
   toggleTheme: () => void
+}
+
+function isExternalNavItem(item: NavItem): item is Extract<NavItem, { external: true }> {
+  return "external" in item
 }
 
 function isActive(pathname: string, href: string, external?: boolean) {
@@ -55,7 +63,9 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           </Link>
 
           <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
-            {navItems.map(({ href, label, external }) => {
+            {navItems.map((item) => {
+              const { href, label } = item
+              const external = isExternalNavItem(item)
               const active = isActive(pathname, href, external)
               const className =
                 "relative px-3 py-1.5 text-sm font-medium rounded-lg transition-colors"
@@ -143,7 +153,9 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
               transition={{ duration: 0.15 }}
               className="mt-2 rounded-xl border border-border bg-background/90 backdrop-blur-md p-2 flex flex-col gap-1 shadow-sm"
             >
-              {navItems.map(({ href, label, external }) => {
+              {navItems.map((item) => {
+                const { href, label } = item
+                const external = isExternalNavItem(item)
                 const active = isActive(pathname, href, external)
                 const className =
                   "text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted"

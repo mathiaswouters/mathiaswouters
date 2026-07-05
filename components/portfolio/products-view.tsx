@@ -4,15 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowUpRight, Globe, Package, TrendingUp } from "lucide-react"
 import { products, type Product, type ProductTag } from "@/content/products"
 import { siteConfig } from "@/lib/site"
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-  }),
-}
+import { fadeUpSm as fadeUp } from "@/lib/motion"
 
 const tagStyles: Record<ProductTag, string> = {
   SaaS: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Moon, Sun, Menu, X } from "lucide-react"
 import { useState } from "react"
-import { logos, siteConfig } from "@/lib/site"
+import { siteConfig } from "@/lib/site"
 
 type NavItem =
   | { href: string; label: string }
@@ -47,17 +47,10 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
         >
           <Link
             href="/"
-            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
             aria-label={siteConfig.name}
           >
-            <img
-              src={theme === "dark" ? logos.onDarkBg : logos.onLightBg}
-              alt=""
-              width={28}
-              height={28}
-              className="size-7 shrink-0"
-            />
-            <span className="text-sm font-medium tracking-tight text-foreground">
+            <span className="text-base md:text-md font-semibold tracking-tight text-foreground">
               {siteConfig.name}
             </span>
           </Link>

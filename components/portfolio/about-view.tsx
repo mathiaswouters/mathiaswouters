@@ -429,7 +429,7 @@ export function AboutView() {
       >
         <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-4">Work together</p>
         <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-balance">
-          Need help with cloud, DevOps, or Linux?
+          Need help with Cloud, DevOps, or Linux?
         </h3>
         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
           I take on a limited number of consulting engagements. Reach out to discuss your project.

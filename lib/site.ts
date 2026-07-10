@@ -11,11 +11,11 @@ export const siteConfig = {
   description:
     "IT consultant specializing in cloud infrastructure, DevOps, and Linux. Based in Belgium.",
   url: "https://mathiaswouters.com",
-  email: "hello@mathiaswouters.com",
+  email: "matiwouters@gmail.com",
   links: {
     github: "https://github.com/mathiaswouters",
-    twitter: "https://twitter.com/mathiaswouters",
-    linkedin: "https://linkedin.com/in/mathiaswouters",
+    twitter: "https://x.com/MathiasWouters2",
+    linkedin: "https://www.linkedin.com/in/mathiaswouters/",
     blog: "https://blog.mathiaswouters.com",
   },
 } as const

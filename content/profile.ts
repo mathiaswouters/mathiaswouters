@@ -41,11 +41,11 @@ export interface Stat {
 }
 
 export const hero = {
-  availability: "Available for select projects",
-  headline: ["Cloud.", "DevOps.", "Linux."],
-  subheadline: "IT consultant based in Belgium",
+  availability: "Let's connect and build something cool together", // Example: Available for select projects
+  headline: ["Cloud", "DevOps", "Linux"],
+  subheadline: "Cloud Engineer & IT consultant based in Belgium",
   bio: "I help teams design, build, and operate reliable cloud infrastructure — from migrations and platform engineering to CI/CD pipelines and Linux systems.",
-  tags: ["AWS", "Kubernetes", "Terraform", "Linux", "CI/CD"],
+  tags: ["AWS", "Terraform", "Linux", "CI/CD", "Kubernetes"],
 }
 
 export const services: Service[] = [
@@ -70,6 +70,11 @@ export const services: Service[] = [
       "Hardening, performance tuning, and day-two operations for Linux-based production environments.",
   },
   {
+    title: "Containerization & Orchestration",
+    description:
+      "Packaging applications into secure, lightweight containers and orchestrating them with Kubernetes to ensure seamless scaling, high availability, and consistent environments from development to production.",
+  },
+  {
     title: "Observability & reliability",
     description:
       "Monitoring, logging, alerting, and incident readiness — so you know what's happening before users do.",
@@ -78,122 +83,131 @@ export const services: Service[] = [
 
 export const skills: SkillGroup[] = [
   {
-    category: "Cloud",
-    items: ["AWS", "Azure", "GCP", "VPC & networking", "IAM & security"],
+    category: "Cloud Platforms",
+    items: ["AWS", "Azure", "GCP", "VPC & networking", "IAM & security", "Databricks"],
   },
   {
-    category: "DevOps",
-    items: ["Kubernetes", "Docker", "Terraform", "Ansible", "GitHub Actions", "ArgoCD"],
+    category: "DevOps & Automation",
+    items: ["Terraform", "Ansible", "CI/CD", "Jenkins", "Python", "Golang"],
   },
   {
-    category: "Linux",
-    items: ["Debian/Ubuntu", "RHEL", "systemd", "nginx", "Hardening", "Shell scripting"],
+    category: "Containers & OS",
+    items: ["Kubernetes", "Docker", "Linux", "RHEL", "Bash Scripting", "Hardening"],
   },
   {
     category: "Observability",
-    items: ["Prometheus", "Grafana", "Loki", "OpenTelemetry", "Datadog"],
+    items: ["Prometheus", "Grafana", "Loki", "Dynatrace"],
   },
 ]
 
 export const stats: Stat[] = [
-  { label: "Years in IT", value: 8, suffix: "+" },
-  { label: "Cloud migrations led", value: 12, suffix: "+" },
-  { label: "Production clusters managed", value: 20, suffix: "+" },
-  { label: "Certifications", value: 4, suffix: "" },
+  { label: "Years in IT", value: 4, suffix: "+" },
+  { label: "Enterprise Projects Contributed To", value: 6, suffix: "" },
+  { label: "Production clusters managed", value: 7, suffix: "+" },
+  { label: "Certifications", value: 1, suffix: "" },
 ]
 
 export const experience: ExperienceItem[] = [
   {
-    period: "2022 — Present",
-    role: "Independent IT Consultant",
-    company: "Self-employed",
+    period: "Mar 2026 — Present",
+    role: "IT Consultant (Cloud / DevOps Engineer)",
+    company: "Itility",
+    companyUrl: "https://itility.nl/",
     description:
-      "Advising SMEs and scale-ups on cloud strategy, DevOps practices, and Linux infrastructure. Engagements range from greenfield platform builds to rescue missions on legacy systems.",
+      "Designing and automating AWS and Azure cloud infrastructure, focusing on smooth data integrations and robust enterprise development environments.",
     achievements: [
-      "Led multi-account AWS landing zone for a fintech client",
-      "Reduced deployment time from hours to minutes via GitOps",
-      "Designed observability stack adopted across 3 engineering teams",
+      "Built automated cloud infrastructure pipelines using Terraform",
+      "Integrated key cloud services natively with modern data platforms like Databricks and Azure Data Factory (ADF)",
+      "Maintained containerized workloads and Linux-based cloud VMs for development workflows",
     ],
-    tags: ["Consulting", "AWS", "Kubernetes"],
+    tags: ["AWS", "Azure", "Terraform", "Databricks", "ADF"],
   },
   {
-    period: "2019 — 2022",
-    role: "DevOps Engineer",
-    company: "Enterprise client",
+    period: "Mar 2025 — Feb 2026",
+    role: "Consultant Linux System Engineer",
+    company: "Tergos (Client: PSA Antwerp)",
+    companyUrl: "https://tergos.com/be-en/",
     description:
-      "Built and operated CI/CD pipelines and container platforms for a distributed engineering organisation.",
+      "Managed and automated core Linux server infrastructure at PSA Antwerp, introducing modern CI/CD capabilities to maximize environment consistency.",
     achievements: [
-      "Migrated 40+ services to Kubernetes",
-      "Introduced Terraform for all infrastructure provisioning",
-      "Cut mean time to recovery by 60% through improved alerting",
+      "Deployed and automated Linux infrastructure using Ansible, Bash, and Python",
+      "Designed and maintained GitLab CI/CD pipelines for critical system and application deployments",
+      "Supported and optimized containerized container workloads utilizing Docker and Kubernetes",
     ],
-    tags: ["Kubernetes", "Terraform", "CI/CD"],
+    tags: ["Linux", "Ansible", "GitLab CI/CD", "Docker", "Kubernetes"],
   },
   {
-    period: "2016 — 2019",
-    role: "Systems Administrator",
-    company: "Managed services provider",
+    period: "Sept 2024 — Dec 2024",
+    role: "Cloud & Automation Intern",
+    company: "Sopra Steria",
+    companyUrl: "https://www.soprasteria.be/",
     description:
-      "Managed Linux servers, networking, and monitoring for business-critical workloads across multiple clients.",
+      "Joined the Cloud & Automation team to research and implement reusable framework patterns for rapid enterprise infrastructure delivery.",
     achievements: [
-      "Maintained 99.9% uptime SLA across managed fleet",
-      "Automated patching and provisioning with Ansible",
-      "Onboarded 8 new clients to standardized Linux baseline",
+      "Automated complete Azure platform landing zone deployments with Terraform and Azure DevOps",
+      "Gained deep operational experience with Azure networking, core identity patterns, and cloud governance",
     ],
-    tags: ["Linux", "Ansible", "Monitoring"],
+    tags: ["Azure", "Terraform", "Azure DevOps"],
+  },
+  {
+    period: "Graduated Jan 2025",
+    role: "Professional Bachelor in Cloud & Cyber Security",
+    company: "Thomas More (Geel)",
+    companyUrl: "https://thomasmore.be/en",
+    description:
+      "Acquired a highly technical, hands-on, project-driven academic baseline focusing heavily on real-world IT architectures, security baselines, and DevOps principles.",
+    achievements: [
+      "Studied structural Linux performance optimization and environment security hardening",
+      "Built foundational knowledge in vulnerability analysis, network defense, and access validation",
+    ],
+    tags: ["Cloud Security", "Linux", "Networking", "Systems Engineering"],
   },
 ]
 
 export const certifications: Certification[] = [
   {
-    name: "AWS Solutions Architect – Associate",
-    issuer: "Amazon Web Services",
-    year: "2023",
-    url: "https://aws.amazon.com/certification/",
-  },
-  {
-    name: "Certified Kubernetes Administrator (CKA)",
-    issuer: "CNCF",
-    year: "2022",
-    url: "https://www.cncf.io/certification/cka/",
-  },
-  {
-    name: "HashiCorp Terraform Associate",
-    issuer: "HashiCorp",
-    year: "2022",
-    url: "https://www.hashicorp.com/certifications",
-  },
-  {
-    name: "Linux Professional Institute LPIC-1",
-    issuer: "LPI",
-    year: "2018",
-    url: "https://www.lpi.org/",
+    name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+    issuer: "Microsoft",
+    year: "2025",
+    url: "https://learn.microsoft.com/en-us/users/mathiaswouters/credentials/558a70ec69e8712?ref=https%3A%2F%2Fwww.linkedin.com%2F",
   },
 ]
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "AWS landing zone for a growing fintech",
-    client: "Confidential — Fintech",
+    title: "Root Module Factory for Azure Delivery",
+    client: "Sopra Steria",
     description:
-      "Designed and implemented a multi-account AWS organisation with centralized logging, IAM, and networking for a team scaling from 10 to 50 engineers.",
+      "Developed a baseline root Terraform module aimed at standardizing and accelerating Azure tenant platform rollouts while minimizing typical manual implementation flaws.",
     outcomes: [
-      "Production-ready landing zone in 6 weeks",
-      "SOC 2 audit requirements met from day one",
-      "Self-service environment provisioning for developers",
+      "Significantly accelerated time-to-delivery for new baseline Azure platform setups",
+      "Mitigated a vast majority of manual environment configuration errors via strict code definitions",
+      "Enforced uniform corporate standardizations across networking and identity governance layers",
     ],
-    tags: ["AWS", "Terraform", "Security"],
+    tags: ["Azure", "Terraform", "Azure DevOps", "Platform Engineering"],
   },
   {
-    title: "Kubernetes platform for a SaaS startup",
-    client: "Confidential — SaaS",
+    title: "Production-Grade Kubernetes Homelab",
+    client: "Personal Project",
     description:
-      "Built a managed Kubernetes platform with GitOps-based deployments, observability, and autoscaling for a product team shipping daily.",
+      "Engineered a fully self-hosted Kubernetes automation platform to perfectly replicate enterprise GitOps operational environments and test architecture implementations.",
     outcomes: [
-      "Zero-downtime deployments within 2 sprints",
-      "Full observability stack (metrics, logs, traces)",
-      "Infrastructure fully defined in code",
+      "Orchestrated complete virtual node sizing and execution baseline leveraging Proxmox hypervisors",
+      "Programmed complete, declarative lifecycle configurations via combined Terraform and Ansible setups",
+      "Synchronized containerized workload life deployment cycles using GitLab CI/CD and ArgoCD",
     ],
-    tags: ["Kubernetes", "GitOps", "Observability"],
+    tags: ["Kubernetes", "Proxmox", "ArgoCD", "GitLab CI/CD", "Ansible"],
   },
+  // {
+  //   title: "Cloud migration to AWS",
+  //   client: "",
+  //   description:
+  //     "<description comes here>",
+  //   outcomes: [
+  //     "<outcome 1 comes here>",
+  //     "<outcome 2 comes here>",
+  //     "<outcome 3 comes here>",
+  //   ],
+  //   tags: ["tag1", "tag2", "tag3"],
+  // },
 ]

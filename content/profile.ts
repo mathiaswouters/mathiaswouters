@@ -52,12 +52,12 @@ export const services: Service[] = [
   {
     title: "Cloud architecture & migrations",
     description:
-      "Design and migrate workloads to AWS, Azure, or GCP with a focus on reliability, cost, and operability.",
+      "Design and migrate workloads to AWS and Azure, including hybrid setups where on-premises systems and the cloud need to work together.",
   },
   {
     title: "Platform engineering",
     description:
-      "Build internal developer platforms, golden paths, and self-service tooling that reduce friction for engineering teams.",
+      "Build the shared tooling, pipelines and automation that engineering teams rely on every day.",
   },
   {
     title: "CI/CD & automation",
@@ -67,12 +67,12 @@ export const services: Service[] = [
   {
     title: "Linux & systems administration",
     description:
-      "Hardening, performance tuning, and day-two operations for Linux-based production environments.",
+      "Configuration management, hardening and day-to-day operations for Linux environments, from a handful of servers to hundreds.",
   },
   {
     title: "Containerization & Orchestration",
     description:
-      "Packaging applications into secure, lightweight containers and orchestrating them with Kubernetes to ensure seamless scaling, high availability, and consistent environments from development to production.",
+      "Packaging applications into lightweight containers and running them on Kubernetes, with consistent environments from development to production.",
   },
   {
     title: "Observability & reliability",
@@ -84,15 +84,15 @@ export const services: Service[] = [
 export const skills: SkillGroup[] = [
   {
     category: "Cloud Platforms",
-    items: ["AWS", "Azure", "GCP", "VPC & networking", "IAM & security", "Databricks"],
+    items: ["AWS", "Azure", "VPC & networking", "IAM & security", "Databricks"],
   },
   {
     category: "DevOps & Automation",
-    items: ["Terraform", "Ansible", "CI/CD", "Jenkins", "Python", "Golang"],
+    items: ["Terraform", "Ansible", "CI/CD", "Jenkins", "Azure DevOps", "GitLab CI/CD", "GitHub Actions", "Python", "Golang"],
   },
   {
     category: "Containers & OS",
-    items: ["Kubernetes", "Docker", "Linux", "RHEL", "Bash Scripting", "Hardening"],
+    items: ["Kubernetes", "Docker", "Linux", "RHEL", "Bash Scripting", "Podman", "Proxmox", "Hardening"],
   },
   {
     category: "Observability",
@@ -100,17 +100,23 @@ export const skills: SkillGroup[] = [
   },
 ]
 
+// export const stats: Stat[] = [
+//   { label: "Years in IT", value: 4, suffix: "+" },
+//   { label: "Enterprise Projects Contributed To", value: 6, suffix: "" },
+//   { label: "Production clusters managed", value: 7, suffix: "+" },
+//   { label: "Certifications", value: 1, suffix: "" },
+// ]
+
 export const stats: Stat[] = [
-  { label: "Years in IT", value: 4, suffix: "+" },
-  { label: "Enterprise Projects Contributed To", value: 6, suffix: "" },
-  { label: "Production clusters managed", value: 7, suffix: "+" },
-  { label: "Certifications", value: 1, suffix: "" },
+  { label: "Linux VMs automated", value: 600, suffix: "+" },
+  { label: "Engineering applications moved to automated packaging", value: 60, suffix: "+" },
+  { label: "Enterprise clients", value: 3, suffix: "" },
 ]
 
 export const experience: ExperienceItem[] = [
   {
     period: "Mar 2026 — Present",
-    role: "IT Consultant (Cloud / DevOps Engineer)",
+    role: "IT Consultant - Cloud Engineer",
     company: "Itility",
     companyUrl: "https://itility.nl/",
     description:
@@ -120,7 +126,7 @@ export const experience: ExperienceItem[] = [
       "Integrated key cloud services natively with modern data platforms like Databricks and Azure Data Factory (ADF)",
       "Maintained containerized workloads and Linux-based cloud VMs for development workflows",
     ],
-    tags: ["AWS", "Azure", "Terraform", "Databricks", "ADF"],
+    tags: ["AWS", "Azure", "Terraform", "Jenkins", "Azure DevOps", "Databricks"],
   },
   {
     period: "Mar 2025 — Feb 2026",
@@ -175,39 +181,39 @@ export const certifications: Certification[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "Root Module Factory for Azure Delivery",
+    title: "EDA Application Packaging & Distribution",
+    client: "Semiconductor company",
+    description:
+      "Engineers relied on around 60 EDA applications that were installed by hand, one version at a time. I automated their lifecycle with Jenkins and designed how packages are stored and distributed across on-premises and AWS sites.",
+    outcomes: [
+      "Replaced a fully manual installation process for ~60 applications",
+      "Proposed central artefact storage in Amazon S3, regardless of where an application is built",
+      "Checked the lifecycle and distribution model with engineers and stakeholders before building it",
+    ],
+    tags: ["Jenkins", "AWS", "Linux", "Hybrid Cloud"],
+  },
+  {
+    title: "Azure Landing Zone Root Module",
     client: "Sopra Steria",
     description:
-      "Developed a baseline root Terraform module aimed at standardizing and accelerating Azure tenant platform rollouts while minimizing typical manual implementation flaws.",
+      "A reusable, JSON-driven Terraform root module that deploys a standard Azure landing zone for customers.",
     outcomes: [
-      "Significantly accelerated time-to-delivery for new baseline Azure platform setups",
-      "Mitigated a vast majority of manual environment configuration errors via strict code definitions",
-      "Enforced uniform corporate standardizations across networking and identity governance layers",
+      "Cut deployment time for a new landing zone from 1 day to around 1-2 hours",
+      "Fewer manual configuration errors, because every setup comes from the same code",
+      "Consistent networking and identity setup across customer environments",
     ],
     tags: ["Azure", "Terraform", "Azure DevOps", "Platform Engineering"],
   },
   {
-    title: "Production-Grade Kubernetes Homelab",
+    title: "Kubernetes Homelab",
     client: "Personal Project",
     description:
-      "Engineered a fully self-hosted Kubernetes automation platform to perfectly replicate enterprise GitOps operational environments and test architecture implementations.",
+      "A self-hosted Kubernetes platform on Proxmox where I try out GitOps and platform tooling the way it's used in enterprise environments.",
     outcomes: [
-      "Orchestrated complete virtual node sizing and execution baseline leveraging Proxmox hypervisors",
-      "Programmed complete, declarative lifecycle configurations via combined Terraform and Ansible setups",
-      "Synchronized containerized workload life deployment cycles using GitLab CI/CD and ArgoCD",
+      "VMs provisioned with Terraform and configured with Ansible",
+      "Workloads deployed through GitLab CI/CD and ArgoCD",
+      "Monitoring with Prometheus, Grafana and Loki, currently being moved onto the Kubernetes cluster",
     ],
-    tags: ["Kubernetes", "Proxmox", "ArgoCD", "GitLab CI/CD", "Ansible"],
-  },
-  // {
-  //   title: "Cloud migration to AWS",
-  //   client: "",
-  //   description:
-  //     "<description comes here>",
-  //   outcomes: [
-  //     "<outcome 1 comes here>",
-  //     "<outcome 2 comes here>",
-  //     "<outcome 3 comes here>",
-  //   ],
-  //   tags: ["tag1", "tag2", "tag3"],
-  // },
+    tags: ["Kubernetes", "Proxmox", "Terraform", "ArgoCD", "GitLab CI/CD", "Ansible"],
+  }
 ]

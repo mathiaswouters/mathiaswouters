@@ -1,52 +1,55 @@
-<div>
-    <div align="center">
-        <img src="https://readme-typing-svg.herokuapp.com?color=%236FDA44&amp;size=32&amp;center=true&amp;vCenter=true&amp;width=600&amp;height=50&amp;lines=Hi+there+I'm+Fathy+%F0%9F%91%8B;Computer+Science+Student;Back-End+Engineer;Problem+Solver;Freelancer;Open-Source+Enthusiast" alt="Headline">
-    </div>
-    <div align="center">
-        <a href="https://www.linkedin.com/in/ahmedfathydev/"><img src="https://img.shields.io/badge/Linkedin-0077b5?style=flat&amp;logo=linkedin" alt="LinkedIn"></a>
-        <a href="https://www.upwork.com/freelancers/~0121ca7f3563e57c0b"><img src="https://img.shields.io/badge/Upwork-494949?style=flat&amp;logo=upwork" alt="UpWork"></a>
-        <a href="https://stackoverflow.com/users/11837259/ahmed-fathy"><img src="https://img.shields.io/badge/Stack Overflow-f48024?style=flat&amp;logo=stackoverflow&amp;logoColor=white" alt="Stack Overflow"></a>
-        <a href="https://www.quora.com/profile/Ahmed-Fathy-616"><img src="https://img.shields.io/badge/Quora-B92B27?style=flat&amp;logo=quora" alt="Quora"></a>
-        <a href="https://t.me/ahmedfathydev"><img src="https://img.shields.io/badge/Telegram-0088cc?style=flat&amp;logo=telegram" alt="Telegram"></a>
-    </div>
-    <div align="left">
-        <br>
-        <p>
-            <strong>
-                Computer Science Student, Back-End Engineer, Problem Solver, Freelancer, and Open-Source Enthusiast.<br><br>
-                I specialize in .NET Core and Microsoft SQL Server and I have experience working with Angular. Good in Algorithms, Data Structures, Database Systems, Object-Oriented Programming, Design Patterns, and Problem Solving skills.<br><br>
-                I am passionate about learning .NET, all Back-End Technologies, Web 3, Blockchain, Linux, Virtualization, Cloud Computing, and DevOps.<br><br>
-                Detailed-oriented, responsible, and committed engineer, with a get-it-done, on-time, and high-quality product spirit. Self and quick learner, self-motivated, and social.
-            </strong>
-        </p>
-        <ul>
-            <li>🌱 <b>I’m currently learning</b>: Computer Science and Software Engineering.</li>
-            <li>🎯 <b>I’m currently focusing on</b>: <a href="https://ahmedfathydev.github.io/Problem-Solving/">Problem-Solving</a>, ⭐️ star the projects if you like it 🤩.</li>
-            <li>🤔 <b>I’m currently open for</b>: A new job opportunity, <a href="https://flowcv.io/resume/feedback/lMhKFXfgJjf8">LINK TO MY RESUME</a>.</li>
-            <li>💬 <b>Ask me about anything</b>: <a href="https://github.com/ahmedfathydev/ahmedfathydev/issues">Here</a>.</li>
-            <li>📫 <b>How to reach me</b>: Catch and follow me from the above links 👆, in addition to follow me here.</li>
-            <li>😄 <b>Fun fact</b>: I love Cars(🚗), Codeing(💻), Traveling(🌍), and Photography(📷).</li>
-            <li>👨‍💻 <b>Hire me for Full Stack Development jobs</b>: <a href="https://www.upwork.com/freelancers/~0121ca7f3563e57c0b?s=1110580755107926016">Link to my UpWork Full Stack Development Specialization</a>.</li>
-            <li>👨‍💻 <b>Hire me for Back-End Development jobs</b>: <a href="https://www.upwork.com/freelancers/~0121ca7f3563e57c0b?s=1110580748673863680">Link to my UpWork Back-End Development Specialization</a>.</li>
-        </ul>
-    </div>
-    <div align="center">
-        <h1>Contribution Activity</h1>
-        <img src="https://github-readme-stats.vercel.app/api?username=ahmedfathydev&amp;title_color=6FDA44&amp;text_color=FFFFFF&amp;show_icons=true&amp;icon_color=6FDA44&amp;include_all_commits=true&amp;count_private=true&amp;theme=dark" alt="GitHub Stats" height="200">
-        <br>
-        <!--
-        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=ahmedfathydev&layout=compact&title_color=6FDA44&text_color=FFFFFF&theme=dark" alt="GitHub Most Used Languages" height="200" />
-        <br>
-        -->
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=AhmedFathyDev&amp;theme=dark&amp;date_format=j%20M%5B%20Y%5D&amp;currStreakLabel=6FDA44&amp;fire=6FDA44&amp;ring=6FDA44" alt="GitHub Streak Stats" height="200">
-        <br>
-        <br>
-    </div>
-    <div align="center">
-        <img src="https://raw.githubusercontent.com/AhmedFathyDev/AhmedFathyDev/main/GitHub.gif" alt="GitHub Octocat Logo" height="100">
-        <p>Loading</p>
-    </div>
+<div align="center">
+
+# Hi, I'm Mathias 👋
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&pause=1200&color=2F81F7&center=true&vCenter=true&width=600&lines=Cloud+%26+Platform+Engineer;AWS+%C2%B7+Azure+%C2%B7+Terraform+%C2%B7+CI%2FCD;Linux+%26+Automation;Hybrid+Cloud" alt="Cloud & Platform Engineer" />
+
+<a href="https://www.mathiaswouters.com"><img src="https://img.shields.io/badge/Website-mathiaswouters.com-2F81F7?style=flat" alt="Website"></a>
+<a href="https://www.linkedin.com/in/mathiaswouters"><img src="https://img.shields.io/badge/LinkedIn-mathiaswouters-0A66C2?style=flat" alt="LinkedIn"></a>
+
 </div>
-<hr>
-<p>Credit: <a href="https://github.com/AhmedFathyDev">Ahmed Fathy</a></p>
-<p>Last edited on: 31/01/2022</p> 
+
+## About me
+
+I'm a cloud engineer based in Belgium with a background in Linux system engineering. As an IT Consultant, I design and automate AWS and Azure infrastructure with Terraform and CI/CD, mostly in hybrid environments where on-premises systems and the cloud have to work together.
+
+- 🔭 **Currently:** helping a semiconductor company move its Linux-based chip design environment from on-premises to AWS
+- 🧪 **Building:** a Kubernetes homelab on Proxmox, with GitOps through ArgoCD and monitoring with Prometheus, Grafana and Loki
+- 💬 **Ask me about:** Terraform, CI/CD pipelines, Linux automation, hybrid cloud
+- 📫 **Reach me:** through [my website](https://www.mathiaswouters.com) or [LinkedIn](https://www.linkedin.com/in/mathiaswouters)
+
+## Tech stack
+
+**Cloud & IaC**<br>
+<img src="https://skillicons.dev/icons?i=aws,azure,terraform,ansible" alt="AWS, Azure, Terraform, Ansible" />
+
+**CI/CD**<br>
+<img src="https://skillicons.dev/icons?i=jenkins,githubactions,gitlab,bitbucket,git" alt="Jenkins, GitHub Actions, GitLab, Bitbucket, Git" />
+<br><sub>+ Azure DevOps, ArgoCD</sub>
+
+**Linux & containers**<br>
+<img src="https://skillicons.dev/icons?i=linux,redhat,ubuntu,debian,docker,kubernetes" alt="Linux, Red Hat, Ubuntu, Debian, Docker, Kubernetes" />
+<br><sub>+ Podman, Proxmox</sub>
+
+**Observability**<br>
+<img src="https://skillicons.dev/icons?i=prometheus,grafana" alt="Prometheus, Grafana" />
+<br><sub>+ Loki, Dynatrace</sub>
+
+**Languages**<br>
+<img src="https://skillicons.dev/icons?i=bash,py,go" alt="Bash, Python, Go" />
+
+<!-- ## Highlights
+
+- Automated the configuration of **~600 Linux VMs** with Ansible at PSA Antwerp
+- Built a reusable Terraform module that cut Azure landing zone deployments **from 1 day to 1-2 hours**
+- Replaced a fully manual EDA application installation process with automated packaging and distribution in Jenkins -->
+
+<!-- ## Projects
+
+| Project | What it is |
+|---|---|
+| [**Kubernetes Homelab**](https://github.com/YOUR-USERNAME/YOUR-HOMELAB-REPO) | Self-hosted Kubernetes platform on Proxmox: VMs provisioned with Terraform, configured with Ansible, workloads deployed with GitLab CI/CD and ArgoCD | -->
+
+<div align="center">
+<sub>Open to interesting cloud, DevOps and Linux projects. Feel free to reach out.</sub>
+</div>
